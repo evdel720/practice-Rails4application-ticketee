@@ -22,6 +22,7 @@ class TicketsController < ApplicationController
   def show
     #Because the before actions already set project and ticket,
     #Don't need anything here.
+    authorize @ticket, :show?
   end
 
   def edit
