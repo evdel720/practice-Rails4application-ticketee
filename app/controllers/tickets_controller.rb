@@ -26,6 +26,7 @@ class TicketsController < ApplicationController
     #Because the before actions already set project and ticket,
     #Don't need anything here.
     authorize @ticket, :show?
+    @comment = @ticket.comments.build
   end
 
   def edit
