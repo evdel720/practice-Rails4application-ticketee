@@ -10,6 +10,9 @@ class Ticket < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 10 }
   accepts_nested_attributes_for :attachments, reject_if: :all_blank
   before_create :assign_default_state
+  searcher do
+    label :tag, from: :tags, field: "name"
+  end
 
   def tag_names=(names)
     @tag_names = names
